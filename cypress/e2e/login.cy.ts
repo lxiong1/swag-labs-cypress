@@ -14,7 +14,7 @@ describe("Login page", () => {
         loginPage.fillCredentials("standard_user", "secret_sauce")
         loginPage.submitCredentials()
 
-        inventoryPage.getMenu().should("be.visible")
+        inventoryPage.getMenuButton().should("be.visible")
     })
 
     it("Logging in as locked out user renders popup error message", () => {
@@ -40,9 +40,9 @@ describe("Login page", () => {
 
         cy.waitUntil(() => {
             cy.reload()
-            return inventoryPage.getMenu().then((menu) => menu.length > 0)
+            return inventoryPage.getMenuButton().then((menu) => menu.length > 0)
         })
 
-        inventoryPage.getMenu().should("be.visible")
+        inventoryPage.getMenuButton().should("be.visible")
     })
 })
